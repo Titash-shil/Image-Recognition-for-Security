@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Image Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Security Image Recognition</h1>
+    <input type="file" id="imageUpload" accept="image/*">
+    <div id="result"></div>
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Simulate image recognition process
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.textContent = 'Processing image...';
+
+                    // Simulate a delay for processing
+                    setTimeout(() => {
+                        // Placeholder for actual image recognition logic
+                        const recognized = Math.random() > 0.5 ? 'Authorized' : 'Intruder';
+                        resultDiv.textContent = `Result: ${recognized}`;
+                    }, 2000);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
